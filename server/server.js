@@ -1,11 +1,13 @@
 import express from 'express';
+import bodyParser from "body-parser";
+import dotenv from "dotenv";
+import { connectDB } from './config/db.js';
 
 const app = express();
+app.use(bodyParser.json());
+dotenv.config();
 
-app.get("/products", (req, res) => {
-
-});
-
-app.listen(5000, () => {
-    console.log("Server started at http://localhost:5000"); 
+app.listen(process.env.PORT, () => {
+    connectDB();
+    console.log(`Server is running on port ${process.env.PORT}`);
 });
