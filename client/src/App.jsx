@@ -15,7 +15,6 @@ export default function App() {
 				</Routes>
 			</div>
 			<Navbar />
-			<h1>Testeeee</h1>
     	</>
   	)
 }

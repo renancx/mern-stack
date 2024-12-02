@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const CreatePage = () => {
+const CreateProduct = () => {
 
     const[newProduct, setNewProduct] = useState({
         name: '',
@@ -35,4 +35,4 @@ const CreatePage = () => {
     );
 }
 
-export default CreatePage;
+export default CreateProduct;
