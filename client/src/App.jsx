@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom"
-import HomePage from "./pages/Home"
-import CreatePage from "./pages/CreateProduct"
-import Navbar from "./components/Navbar"
+import HomePage from "./pages/Home.jsx"
+import Navbar from "./components/Navbar.jsx"
+import CreateProduct from "./pages/CreateProduct.jsx"
 
 
 export default function App() {
@@ -11,7 +11,7 @@ export default function App() {
 			<div>
 				<Routes>
 					<Route path="/" element={<HomePage />} />
-					<Route path="/create" element={<CreatePage />} />
+					<Route path="/create" element={<CreateProduct />} />
 				</Routes>
 			</div>
 			<Navbar />

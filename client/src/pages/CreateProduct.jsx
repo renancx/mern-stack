@@ -1,21 +1,19 @@
 import React, { useState } from 'react';
+import { useProductStore } from  '../store/product.jsx';
 
 const CreateProduct = () => {
+    const { createProduct } = useProductStore();
+    const[newProduct, setNewProduct] = useState({name: '', price: '', image: ''});
 
-    const[newProduct, setNewProduct] = useState({
-        name: '',
-        price: '',
-        image: ''
-    });
-
-    const handleAddProduct = () => {
-        console.log("New product")
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const result = await createProduct(newProduct);
+        setNewProduct({name: '', price: '', image: ''});        
     }
 
     return(
-        <div> 
-            <h1>sdaadsdsa</h1>
-
+        <div>
+            <h1>asddsa</h1>
             <form>
                 <div>
                     <label>Product Name</label>
@@ -29,7 +27,7 @@ const CreateProduct = () => {
                     <label>Product Image</label>
                     <input type="text" value={newProduct.image} onChange={(e) => setNewProduct({...newProduct, image: e.target.value})}/>
                 </div>
-                <button onClick={handleAddProduct}>Add Product</button>
+                <button onClick={handleSubmit}>Create Product</button>
             </form>
         </div>
     );
