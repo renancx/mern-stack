@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { useProductStore } from  '../store/product.jsx';
+import { useProductStore } from  '../../store/product';
+import "./styles.css";
 
 const CreateProduct = () => {
     const { createProduct } = useProductStore();

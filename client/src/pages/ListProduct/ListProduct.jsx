@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
-import { useProductStore } from "../store/product";
+import { useProductStore } from "../../store/product"
+import "./styles.css";
 
 const ProductList = () => {
-    const { products, setProducts } = useProductStore();
+    const { products, setProducts, deleteProduct } = useProductStore();
 
     useEffect(() => {
         const fetchProducts = async () => {
@@ -19,9 +20,16 @@ const ProductList = () => {
                 console.error("Erro na requisição:", error);
             }
         };
-
         fetchProducts();
     }, [setProducts]);
+
+    const handleDelete = async (id) => {
+        //TODO: criar um modal para confirmação
+        const result = await deleteProduct(id);
+        if (!result.success){
+            alert(result.message);
+        }
+    }
 
     return (
         <div>
@@ -30,13 +38,13 @@ const ProductList = () => {
                 <ul>
                     {products.map((product) => (
                         <li key={product._id}>
-                            <h2>{product.name}</h2>
-                            <p>Preço: R$ {product.price}</p>
-                            <img
-                                src={product.image}
-                                alt={product.name}
-                                style={{ width: "100px" }}
-                            />
+                            <div className="product-container">
+                                <h2>{product.name}</h2>
+                                <p>Preço: R$ {product.price}</p>
+                                <img src={product.image} alt={product.name} style={{ width: "100px" }} />
+                                <button>Edit</button>
+                                <button onClick={() => handleDelete(product._id)}>Delete</button>
+                            </div>
                         </li>
                     ))}
                 </ul>

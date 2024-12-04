@@ -10,6 +10,9 @@ const productReducer = (state, action) => {
             return { ...state, products: action.payload };
         case "ADD_PRODUCT":
             return { ...state, products: [...state.products, action.payload] };
+        case "DELETE_PRODUCT":
+            return { ...state, products: state.products.filter((product) => product.id !== action.payload)};
+
         default:
             return state;
     }
@@ -44,8 +47,26 @@ export const ProductProvider = ({ children }) => {
         return { success: true, message: "Product added successfully." };
     };
 
+    const deleteProduct = async (id) => {
+        try {
+            const res = await fetch(`http://localhost:4000/api/products/${id}`, {method: "DELETE"});
+
+            if(res.ok) {
+                dispatch({type: "DELETE_PRODUCT", payload: id});
+                return { success: true, message: "Product deleted successfully." };
+            }
+            else {
+                const error = await res.json();
+                return {success: false, message: error.message };
+            }
+        }
+        catch (error) {
+            return {success: false, message: error.message };
+        }
+    }
+
     return (
-        <ProductContext.Provider value={{ ...state, setProducts, createProduct }}>
+        <ProductContext.Provider value={{ ...state, setProducts, createProduct, deleteProduct }}>
             {children}
         </ProductContext.Provider>
     );
