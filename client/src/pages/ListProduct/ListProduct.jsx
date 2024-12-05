@@ -1,9 +1,19 @@
-import React, { useEffect } from "react";
-import { useProductStore } from "../../store/product"
+import React, { useEffect, useState } from "react";
+import { useProductStore } from "../../store/product";
+import UpdateProduct from "../UpdateProduct/UpdateProduct";
 import "./styles.css";
 
 const ProductList = () => {
     const { products, setProducts, deleteProduct } = useProductStore();
+    const [editingProduct, setEditingProduct] = useState(null);
+
+    const handleEdit = (product) => {
+        setEditingProduct(product);
+    };
+
+    const handleCloseEdit = () => {
+        setEditingProduct(null);
+    };
 
     useEffect(() => {
         const fetchProducts = async () => {
@@ -24,12 +34,12 @@ const ProductList = () => {
     }, [setProducts]);
 
     const handleDelete = async (id) => {
-        //TODO: criar um modal para confirmação
+        // TODO: criar um modal para confirmação
         const result = await deleteProduct(id);
-        if (!result.success){
+        if (!result.success) {
             alert(result.message);
         }
-    }
+    };
 
     return (
         <div>
@@ -41,8 +51,12 @@ const ProductList = () => {
                             <div className="product-container">
                                 <h2>{product.name}</h2>
                                 <p>Preço: R$ {product.price}</p>
-                                <img src={product.image} alt={product.name} style={{ width: "100px" }} />
-                                <button>Edit</button>
+                                <img
+                                    src={product.image}
+                                    alt={product.name}
+                                    style={{ width: "100px" }}
+                                />
+                                <button onClick={() => handleEdit(product)}>Edit</button>
                                 <button onClick={() => handleDelete(product._id)}>Delete</button>
                             </div>
                         </li>
@@ -50,6 +64,12 @@ const ProductList = () => {
                 </ul>
             ) : (
                 <p>Nenhum produto encontrado.</p>
+            )}
+            {editingProduct && (
+                <div>
+                    <h2>Editando Produto</h2>
+                    <UpdateProduct product={editingProduct} onClose={handleCloseEdit} />
+                </div>
             )}
         </div>
     );
