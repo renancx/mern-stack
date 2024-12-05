@@ -10,7 +10,6 @@ const EditProduct = ({ product, onClose }) => {
         const result = await editProduct(updatedProduct);
 
         if (result.success) {
-            alert("Produto atualizado com sucesso!");
             onClose();
         } else {
             alert(result.message);
