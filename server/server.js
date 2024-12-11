@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import path from "path";
 import { connectDB } from './config/db.js';
 import ProductRoute from './routes/ProductRoute.js';
+import AuthRoute from './routes/AuthRoute.js';
 import cors from 'cors';
 
 const __dirname = path.resolve();
@@ -15,6 +16,8 @@ dotenv.config();
 app.use(cors());
 
 app.use('/api/products', ProductRoute);
+
+app.use('/auth', AuthRoute);
 
 if(process.env.NODE_ENV === "production") {
     app.use(express.static(path.join(__dirname, "/client/dist")));
