@@ -1,0 +1,12 @@
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    padding: 20px;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    height: 380px;
+    width: 330px;
+}

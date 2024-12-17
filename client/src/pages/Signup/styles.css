@@ -1,24 +1,14 @@
-body {
-    font-family: "Red Hat Display", sans-serif;
-    background-color: #4070f4;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    height: 100vh;
-    width: 100vw;
-    margin: 0;
-}
-
-
-.container {
+.signup-container {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: start;
+    padding: 20px;
     flex-direction: column;
-    background-color: #fefefe;
+    background-color: #fff;
     border-radius: 10px;
-    height: 600px;
-    width: 400px;
+    border: 1px solid #ddd;
+    height: 380px;
+    width: 330px;
 }
 
 form {
@@ -39,15 +29,44 @@ form {
     font-weight: 400;
 }
 
+.submit-button:hover {
+    cursor: pointer;
+}
+
 input {
     width: 300px;
-    height: 40px;
-    border: 1px solid black;
+    height: 20px;
+    border: 1px solid #ddd;
     border-radius: 5px;
+    padding: 10px;
+}
+
+input:focus {
+    border: 2px solid #4070f4;
+    outline: none;
+}
+
+label {
+    margin-top: 10px;
+    font-weight: 500;
+    font-size: 14px;
 }
 
 .label {
     display: flex;
     flex-direction: column;
     margin-top: 7px;
+}
+
+h1 {
+    font-weight: 700;
+    margin: 0;
+}
+
+p {
+    font-size: 14px;
+}
+
+a {
+    text-decoration: none;
 }
