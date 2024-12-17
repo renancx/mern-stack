@@ -38,7 +38,7 @@ export default function Signup() {
                     body: JSON.stringify(signupInfo)
                 });
                 const result = await response.json();
-                const {success, message} = result;
+                const {success, message, error} = result;
                 if(success){
                     handleSuccess(message);
                     setTimeout(() => {
@@ -59,7 +59,7 @@ export default function Signup() {
             <h1>Create account</h1>
             <form onSubmit={handleSignup}>
                 <div className="label name-label">
-                    <label htmlFor="name">Name</label>
+                    <label htmlFor="name">Your name</label>
                     <input name="name" type="text" onChange={handleChange} value={signupInfo.name} placeholder="First and last name..."/>
                 </div>
                 <div className="label email-label">

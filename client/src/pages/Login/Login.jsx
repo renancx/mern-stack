@@ -3,7 +3,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { handleError, handleSuccess } from "../../utils/toast";
 
-
 export default function Login() {
 
     const [loginInfo, setLoginInfo] = useState({
@@ -37,9 +36,11 @@ export default function Login() {
                     body: JSON.stringify(loginInfo)
                 });
                 const result = await response.json();
-                const {success, message} = result;
+                const {success, message, jwtToken, name, error} = result;
                 if(success){
                     handleSuccess(message);
+                    localStorage.setItem('token', jwtToken);
+                    localStorage.setItem('loggedInUser', name);
                     setTimeout(() => {
                         navigate("/")
                     }, 1000)
