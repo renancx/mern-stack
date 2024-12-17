@@ -56,7 +56,7 @@ export default function Signup() {
 
     return (
         <div className="container">
-            <h1>Signup</h1>
+            <h1>Registration</h1>
             <form onSubmit={handleSignup}>
                 <div className="label name-label">
                     <label htmlFor="name">Name</label>
@@ -70,8 +70,8 @@ export default function Signup() {
                     <label htmlFor="password">Password</label>
                     <input name="password" type="password" onChange={handleChange} value={signupInfo.password}/>
                 </div>
-                <button type="submit">Signup</button>
-                <p>Already have an account? <Link to="/login">Login</Link></p>
+                <button className="submit-button" type="submit">Register Now</button>
+                <p>Already have an account? <Link to="/login">Login now</Link></p>
             </form>
         </div>
     );
