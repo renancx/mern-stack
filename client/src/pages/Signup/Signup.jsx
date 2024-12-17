@@ -1,37 +1,76 @@
 import "./styles.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { handleError, handleSuccess } from "../../utils/toast";
 
 
 export default function Signup() {
+
     const [signupInfo, setSignupInfo] = useState({
         name: "",
         email: "",
         password: ""
     });
 
+    const navigate = useNavigate();
+
     const handleChange = (e) => {
         const { name, value } = e.target;
-        
+        const copySignupInfo = {...signupInfo};
+        copySignupInfo[name] = value;
+        setSignupInfo(copySignupInfo);
     };
+
+    const handleSignup = async (e) => {
+        e.preventDefault();
+        const {name, email, password} = signupInfo;
+        if(!name || !email || !password){
+            return handleError("All fields are required");
+        }
+        else{
+            try {
+                const url = "http://localhost:4000/auth/signup";
+                const response = await fetch(url, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(signupInfo)
+                });
+                const result = await response.json();
+                const {success, message} = result;
+                if(success){
+                    handleSuccess(message);
+                    setTimeout(() => {
+                        navigate("/login")
+                    }, 1000)
+                } else if(error) {
+                    return handleError(message);
+                }
+            }
+            catch (error) {
+                return handleError(error);
+            }            
+        }
+    }
 
     return (
         <div className="container">
             <h1>Signup</h1>
-            <form>
+            <form onSubmit={handleSignup}>
                 <div>
-                    <label htmlFor="name" onChange={handleChange}>Name</label>
-                    <input type="text"/>
+                    <label htmlFor="name">Name</label>
+                    <input name="name" type="text" onChange={handleChange} value={signupInfo.name}/>
                 </div>
                 <div>
-                    <label htmlFor="email" onChange={handleChange}>Email</label>
-                    <input type="email"/>
+                    <label htmlFor="email">Email</label>
+                    <input name="email" type="email" onChange={handleChange} value={signupInfo.email}/>
                 </div>
                 <div>
-                    <label htmlFor="password" onChange={handleChange}>Password</label>
-                    <input type="password"/>
+                    <label htmlFor="password">Password</label>
+                    <input name="password" type="password" onChange={handleChange} value={signupInfo.password}/>
                 </div>
-                <button>Signup</button>
+                <button type="submit">Signup</button>
                 <p>Already have an account? <Link to="/login">Login</Link></p>
             </form>
         </div>
