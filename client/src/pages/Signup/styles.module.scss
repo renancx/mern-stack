@@ -11,7 +11,7 @@
     width: 330px;
 }
 
-form {
+.form {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -33,38 +33,35 @@ form {
     cursor: pointer;
 }
 
-input {
+.input {
     width: 300px;
     height: 20px;
-    border: 1px solid #ddd;
+    border: 1px solid #c0c0c0;
     border-radius: 5px;
     padding: 10px;
 }
 
-input:focus {
+.input:focus {
     border: 2px solid #4070f4;
     outline: none;
-}
-
-label {
-    margin-top: 10px;
-    font-weight: 500;
-    font-size: 14px;
 }
 
 .label {
     display: flex;
     flex-direction: column;
     margin-top: 7px;
+    margin-top: 10px;
+    font-weight: 500;
+    font-size: 14px;
 }
 
-h1 {
+.h1 {
     font-weight: 700;
     margin: 0;
     margin-bottom: 10px;
 }
 
-p {
+.p {
     font-size: 14px;
 }
 

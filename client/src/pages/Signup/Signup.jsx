@@ -56,22 +56,22 @@ export default function Signup() {
 
     return (
         <div className={styles["container"]}>
-            <h1>Create account</h1>
-            <form onSubmit={handleSignup}>
-                <div className={styles["label name-label"]}>
+            <h1 className={styles["h1"]}>Create account</h1>
+            <form onSubmit={handleSignup} className={styles["form"]}>
+                <div className={styles["label"]}>
                     <label htmlFor="name">Your name</label>
-                    <input name="name" type="text" onChange={handleChange} value={signupInfo.name} placeholder="First and last name..."/>
+                    <input className={styles["input"]} name="name" type="text" onChange={handleChange} value={signupInfo.name} placeholder="First and last name..."/>
                 </div>
-                <div className={styles["label email-label"]}>
+                <div className={styles["label"]}>
                     <label htmlFor="email">Email</label>
-                    <input name="email" type="email" onChange={handleChange} value={signupInfo.email}/>
+                    <input className={styles["input"]} name="email" type="email" onChange={handleChange} value={signupInfo.email}/>
                 </div>
-                <div className={styles["label password-label"]}>
+                <div className={styles["label"]}>
                     <label htmlFor="password">Password</label>
-                    <input name="password" type="password" onChange={handleChange} value={signupInfo.password} placeholder="At least 5 characters"/>
+                    <input className={styles["input"]} name="password" type="password" onChange={handleChange} value={signupInfo.password} placeholder="At least 5 characters"/>
                 </div>
                 <button className={styles["submit-button"]} type="submit">Register Now</button>
-                <p>Already have an account? <Link to="/login">Sign in</Link></p>
+                <p className={styles["p"]} >Already have an account? <Link to="/login">Sign in</Link></p>
             </form>
         </div>
     );
