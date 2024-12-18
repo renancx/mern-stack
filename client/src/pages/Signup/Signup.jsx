@@ -1,4 +1,4 @@
-import "./styles.module.scss";
+import styles from "./styles.module.scss";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { handleError, handleSuccess } from "../../utils/toast";
@@ -55,22 +55,22 @@ export default function Signup() {
     }
 
     return (
-        <div className="signup-container">
+        <div className={styles["container"]}>
             <h1>Create account</h1>
             <form onSubmit={handleSignup}>
-                <div className="label name-label">
+                <div className={styles["label name-label"]}>
                     <label htmlFor="name">Your name</label>
                     <input name="name" type="text" onChange={handleChange} value={signupInfo.name} placeholder="First and last name..."/>
                 </div>
-                <div className="label email-label">
+                <div className={styles["label email-label"]}>
                     <label htmlFor="email">Email</label>
                     <input name="email" type="email" onChange={handleChange} value={signupInfo.email}/>
                 </div>
-                <div className="label password-label">
+                <div className={styles["label password-label"]}>
                     <label htmlFor="password">Password</label>
                     <input name="password" type="password" onChange={handleChange} value={signupInfo.password} placeholder="At least 5 characters"/>
                 </div>
-                <button className="submit-button" type="submit">Register Now</button>
+                <button className={styles["submit-button"]} type="submit">Register Now</button>
                 <p>Already have an account? <Link to="/login">Sign in</Link></p>
             </form>
         </div>
