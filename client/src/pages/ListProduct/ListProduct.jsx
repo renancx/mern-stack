@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useProductStore } from "../../store/product";
 import UpdateProduct from "../UpdateProduct/UpdateProduct";
-import "./styles.css";
+import "./styles.module.scss";
 
 const ProductList = () => {
     const { products, setProducts, deleteProduct } = useProductStore();

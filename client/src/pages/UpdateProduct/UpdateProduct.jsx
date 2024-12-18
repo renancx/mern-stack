@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useProductStore } from "../../store/product";
+import "./styles.module.scss";
 
 const EditProduct = ({ product, onClose }) => {
     const { editProduct } = useProductStore();

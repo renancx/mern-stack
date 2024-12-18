@@ -1,4 +1,4 @@
-import "./styles.css";
+import "./styles.module.scss";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { handleError, handleSuccess } from "../../utils/toast";
@@ -50,7 +50,7 @@ export default function Login() {
             }
             catch (error) {
                 return handleError(error);
-            }            
+            }
         }
     }
 
