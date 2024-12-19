@@ -5,11 +5,12 @@ import ListProduct from "./pages/ListProduct/ListProduct.jsx"
 import Login from "./pages/Login/Login.jsx"
 import Signup from "./pages/Signup/Signup.jsx"
 import {ToastContainer} from 'react-toastify'
+import {AuthProvider} from './providers/AuthContext'
 
 export default function App() {
 
 	return (
-		<>
+		<AuthProvider>
 			<div>
 				<Routes>
 					<Route path="/" element={<HomePage />} />
@@ -20,6 +21,6 @@ export default function App() {
 				</Routes>
 			</div>
 			<ToastContainer />
-    	</>
+    	</AuthProvider>
   	)
 }
