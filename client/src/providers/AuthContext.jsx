@@ -58,7 +58,8 @@ export const AuthProvider = ({ children }) => {
 
             if (success) {
                 handleSuccess(message);
-                navigate("/login");
+
+                await login({ email, password });
             } else {
                 handleError(message || error);
             }
@@ -72,7 +73,7 @@ export const AuthProvider = ({ children }) => {
         localStorage.removeItem("loggedInUser");
         setToken(null);
         setUser(null);
-        navigate("/login");
+        navigate("/");
     };
 
     return (
