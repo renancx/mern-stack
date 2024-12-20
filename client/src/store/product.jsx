@@ -1,4 +1,5 @@
 import React, { createContext, useReducer, useContext } from "react";
+import { handleSuccess } from "../utils/toast";
 
 const initialState = {
     products: []
@@ -38,6 +39,7 @@ export const ProductProvider = ({ children }) => {
         const res = await fetch("http://localhost:4000/api/products", {
             method: "POST",
             headers: {
+                "Authorization": `${localStorage.getItem("token")}`,
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(newProduct)
@@ -47,12 +49,18 @@ export const ProductProvider = ({ children }) => {
 
         dispatch({ type: "ADD_PRODUCT", payload: data });
 
+        handleSuccess("Product added successfully.");
         return { success: true, message: "Product added successfully." };
     };
 
     const deleteProduct = async (id) => {
         try {
-            const res = await fetch(`http://localhost:4000/api/products/${id}`, {method: "DELETE"});
+            const res = await fetch(`http://localhost:4000/api/products/${id}`, {
+                method: "DELETE",
+                headers: {
+                    "Authorization": `${localStorage.getItem("token")}`
+                }
+            });
 
             if(res.ok) {
                 dispatch({type: "DELETE_PRODUCT", payload: id});
@@ -75,7 +83,8 @@ export const ProductProvider = ({ children }) => {
             const res = await fetch(`http://localhost:4000/api/products/${updatedProduct._id}`, {
                 method: "PUT",
                 headers: {
-                    "Content-Type": "application/json",
+                    "Authorization": `${localStorage.getItem("token")}`,
+                    "Content-Type": "application/json"
                 },
                 body: JSON.stringify(updatedProduct),
             });
@@ -91,8 +100,7 @@ export const ProductProvider = ({ children }) => {
         } catch (error) {
             return { success: false, message: error.message };
         }
-    };
-    
+    };   
 
     return (
         <ProductContext.Provider value={{ ...state, setProducts, createProduct, deleteProduct, editProduct }}>

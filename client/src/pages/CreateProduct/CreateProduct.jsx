@@ -14,7 +14,7 @@ const CreateProduct = () => {
 
     return(
         <div>
-            <h1>asddsa</h1>
+            <h1>Create a new product</h1>
             <form>
                 <div>
                     <label>Product Name</label>
