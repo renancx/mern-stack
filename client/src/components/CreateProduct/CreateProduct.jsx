@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useProductStore } from  '../../store/product';
-import "./styles.module.scss";
+import styles from './styles.module.scss';
 
 const CreateProduct = () => {
     const { createProduct } = useProductStore();
@@ -13,7 +13,7 @@ const CreateProduct = () => {
     }
 
     return(
-        <div>
+        <div className={styles["container"]}>
             <h1>Create a new product</h1>
             <form>
                 <div>

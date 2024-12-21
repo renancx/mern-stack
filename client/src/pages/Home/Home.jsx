@@ -1,5 +1,6 @@
 import styles from "./styles.module.scss";
 import { useAuth } from "../../providers/AuthContext";
+import Navbar from "../../components/Navbar/Navbar";
 
 const HomePage = () => {
     const { logout } = useAuth();
@@ -10,8 +11,11 @@ const HomePage = () => {
 
     return(
         <div>
-            <h1 className={styles["h1"]}>Home page</h1>
-            <button onClick={handleLogout}>Logout</button>
+            <Navbar />
+            <div className={styles["container"]}>
+                <h1 className={styles["h1"]}>Home page</h1>
+                <button onClick={handleLogout}>Logout</button>
+            </div>
         </div>
     );
 }
