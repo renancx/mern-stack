@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { handleError, handleSuccess } from "../utils/toast";
 
@@ -7,7 +7,13 @@ const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
     const [token, setToken] = useState(() => localStorage.getItem("token") || null);
     const [user, setUser] = useState(() => localStorage.getItem("loggedInUser") || null);
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
     const navigate = useNavigate();
+
+    useEffect(() => {
+        const token = localStorage.getItem("token");
+        setIsAuthenticated(!!token);
+    }, []);
 
     const login = async (loginInfo) => {
         try {
@@ -32,6 +38,7 @@ export const AuthProvider = ({ children }) => {
                 localStorage.setItem("loggedInUser", name);
                 setToken(jwtToken);
                 setUser(name);
+                setIsAuthenticated(true);
                 navigate("/");
             } else {
                 handleError(message || error)
@@ -73,6 +80,7 @@ export const AuthProvider = ({ children }) => {
         localStorage.removeItem("loggedInUser");
         setToken(null);
         setUser(null);
+        setIsAuthenticated(false);
         navigate("/");
     };
 
