@@ -9,7 +9,7 @@ export default function Dashboard() {
 
     const [visible, setVisible] = useState(false);
     return (
-        <div>
+        <div className={styles["container"]}>
             <Navbar />
             <h1>Dashboard muito pica</h1>
             <button onClick={() => setVisible(true)}>Adicionar Produto</button>
