@@ -155,3 +155,15 @@
     width: 100%;
     margin: 0;
 }
+
+.user {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+}
+
+.cart-icon:hover {
+    cursor: pointer;
+    
+}

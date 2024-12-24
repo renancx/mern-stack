@@ -18,20 +18,22 @@ export default function Login() {
     };
 
     return (
-        <div className={styles["container"]}>
-            <h1 className={styles["h1"]}>Login</h1>
-            <form onSubmit={handleSubmit} className={styles["form"]}>
-                <div className={styles["label"]}>
-                    <label htmlFor="email">Email</label>
-                    <input className={styles["input"]} name="email" type="email" onChange={handleChange} value={loginInfo.email}/>
-                </div>
-                <div className={styles["label"]}>
-                    <label htmlFor="password">Password</label>
-                    <input className={styles["input"]} name="password" type="password" onChange={handleChange} value={loginInfo.password} placeholder="At least 5 characters"/>
-                </div>
-                <button className={styles["submit-button"]} type="submit">Continue</button>
-                <p className={styles["p"]}>New customer? <Link to="/signup">Create your account</Link></p>
-            </form>
+        <div className={styles["outer-container"]}>            
+            <div className={styles["container"]}>                
+                <h1 className={styles["h1"]}>Login</h1>
+                <form onSubmit={handleSubmit} className={styles["form"]}>
+                    <div className={styles["label"]}>
+                        <label htmlFor="email">Email</label>
+                        <input className={styles["input"]} name="email" type="email" onChange={handleChange} value={loginInfo.email}/>
+                    </div>
+                    <div className={styles["label"]}>
+                        <label htmlFor="password">Password</label>
+                        <input className={styles["input"]} name="password" type="password" onChange={handleChange} value={loginInfo.password} placeholder="At least 5 characters"/>
+                    </div>
+                    <button className={styles["submit-button"]} type="submit">Continue</button>
+                    <p className={styles["p"]}>New customer? <Link to="/signup">Create your account</Link></p>
+                </form>
+            </div>
         </div>
     );
 }

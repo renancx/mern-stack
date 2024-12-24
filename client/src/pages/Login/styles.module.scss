@@ -1,14 +1,23 @@
 .container {
     display: flex;
     justify-content: center;
-    align-items: start;
-    padding: 20px;
+    align-items: center;
     flex-direction: column;
     background-color: #fff;
     border-radius: 10px;
     border: 1px solid #ddd;
     height: 380px;
-    width: 330px;
+    width: 360px;
+    margin: auto;
+}
+
+.outer-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #fff;
+    flex-direction: column;
 }
 
 .form {
