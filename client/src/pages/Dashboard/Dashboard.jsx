@@ -9,22 +9,23 @@ export default function Dashboard() {
 
     const [visible, setVisible] = useState(false);
     return (
-        <div className={styles["container"]}>
-            <Navbar />
-            <h1>Dashboard muito pica</h1>
-            <button onClick={() => setVisible(true)}>Adicionar Produto</button>
+        <div className={styles["outer-container"]}>
+            <div className={styles["container"]}>
+                <Navbar />
+                <button onClick={() => setVisible(true)}>Adicionar Produto</button>
 
-            <Dialog
-                header="Create new product"
-                visible={visible}
-                position="top"
-                modal
-                onHide={() => {if (!visible) return; setVisible(false); }}
-                content={({ hide }) => (
-                    <CreateProduct hide={hide} />
-                )}
-            ></Dialog>
-            <ProductList />
+                <Dialog
+                    header="Create new product"
+                    visible={visible}
+                    position="top"
+                    modal
+                    onHide={() => {if (!visible) return; setVisible(false); }}
+                    content={({ hide }) => (
+                        <CreateProduct hide={hide} />
+                    )}
+                ></Dialog>
+                <ProductList />
+            </div>
         </div>
     )
 }

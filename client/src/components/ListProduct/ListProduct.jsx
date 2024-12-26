@@ -43,7 +43,6 @@ const ProductList = () => {
 
     return (
         <div>
-            <h1>Lista de Produtos</h1>
             {products.length > 0 ? (
                 <ul>
                     {products.map((product) => (
