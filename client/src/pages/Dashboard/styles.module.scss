@@ -16,3 +16,15 @@
     background-color: #fff;
     flex-direction: column;
 }
+
+.add-product-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background-color: #00cc00;
+    border: 0;
+    padding: 10px;
+    border-radius: 6px;
+    color: #fff;
+}

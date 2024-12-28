@@ -25,17 +25,17 @@ const ListProduct = ({ renderProduct, className }) => {
     }, [setProducts]);
 
     return (
-        <div>
+        <>
             {products.length > 0 ? (
                 <ul className={styles[className]}>
                     {products.map((product) => (
-                        <li key={product.id}>{renderProduct(product)}</li>
+                        <li key={product._id}>{renderProduct(product)}</li>
                     ))}
                 </ul>
             ) : (
                 <p>Nenhum produto encontrado.</p>
             )}
-        </div>
+        </>
     );
 };
 
