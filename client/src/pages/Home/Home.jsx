@@ -18,8 +18,8 @@ const HomePage = () => {
                         <p>{product.description}</p>
                         <p>Price: {product.price}</p>
                     </div>
-                )} />
-
+                )} 
+                className="home-list"/>
             </div>
         </div>
     );

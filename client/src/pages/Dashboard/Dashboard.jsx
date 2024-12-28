@@ -47,15 +47,15 @@ export default function Dashboard() {
                 ></Dialog>
 
                 <ListProduct renderProduct={(product) => (
-                    <div>
+                    <div className={styles["product-container"]}>
                         <img src={product.image} alt={product.name} className={styles["product-image"]} width={200} height={200} />
-                        <h2>{product.name}</h2>
-                        <p>{product.description}</p>
-                        <p>Price: {product.price}</p>
-                        <button onClick={() => handleEdit(product)}>Editar</button>
-                        <button onClick={() => handleDelete(product._id)}>Excluir</button>
+                        <h2 className={styles["product-name"]}>{product.name}</h2>
+                        <p className={styles["product-price"]}>Price: {product.price}</p>
+                        <button className={styles["product-edit"]} onClick={() => handleEdit(product)}>Editar</button>
+                        <button className={styles["product-delete"]} onClick={() => handleDelete(product._id)}>Excluir</button>
                     </div>
-                )} />
+                )}
+                className="dashboard-list"/>
                 {editingProduct && (
                     <div>
                         <h2>Editando Produto</h2>

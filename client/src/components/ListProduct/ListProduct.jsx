@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { useProductStore } from "../../store/product";
-import "./styles.module.scss";
+import styles from "./styles.module.scss";
 
-const ListProduct = ({ renderProduct }) => {
+const ListProduct = ({ renderProduct, className }) => {
     const { products, setProducts } = useProductStore();
 
     useEffect(() => {
@@ -27,7 +27,7 @@ const ListProduct = ({ renderProduct }) => {
     return (
         <div>
             {products.length > 0 ? (
-                <ul>
+                <ul className={styles[className]}>
                     {products.map((product) => (
                         <li key={product.id}>{renderProduct(product)}</li>
                     ))}
