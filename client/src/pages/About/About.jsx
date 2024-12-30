@@ -8,7 +8,7 @@ import Navbar from "../../components/Navbar/Navbar";
 export default function About() {
 
     return (
-        <div>
+        <div className={styles["container"]}>
             <Navbar />
             <h1>About page</h1>
 

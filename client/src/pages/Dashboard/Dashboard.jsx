@@ -44,8 +44,10 @@ export default function Dashboard() {
                 <Dialog
                     header="Create new product"
                     visible={visible}
-                    position="top"
-                    modal
+                    position="center"
+                    blockScroll={true}
+                    dismissableMask={true}
+                    modal={true}
                     onHide={() => {if (!visible) return; setVisible(false); }}
                     content={({ hide }) => (
                         <CreateProduct hide={hide} />

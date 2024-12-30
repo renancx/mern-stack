@@ -14,21 +14,22 @@ const CreateProduct = () => {
 
     return(
         <div className={styles["container"]}>
-            <h1>Create a new product</h1>
-            <form>
-                <div>
-                    <label>Product Name</label>
-                    <input type="text" value={newProduct.name} onChange={(e) => setNewProduct({...newProduct, name: e.target.value})}/>
+            <h1 className={styles["h1"]}>Create a new product</h1>
+            
+            <form className={styles["form"]}>
+                <div className={styles["label-div"]}>
+                    <label className={styles["label"]}>Product Name</label>
+                    <input className={styles["label-input"]} type="text" value={newProduct.name} onChange={(e) => setNewProduct({...newProduct, name: e.target.value})}/>
+                </div>                
+                <div className={styles["label-div"]}>
+                    <label className={styles["label"]}>Product Price</label>
+                    <input className={styles["label-input"]} type="text" value={newProduct.price} onChange={(e) => setNewProduct({...newProduct, price: e.target.value})}/>
                 </div>
-                <div>
-                    <label>Product Price</label>
-                    <input type="text" value={newProduct.price} onChange={(e) => setNewProduct({...newProduct, price: e.target.value})}/>
+                <div className={styles["label-div"]}>
+                    <label className={styles["label"]}>Product Image</label>
+                    <input className={styles["label-input"]} type="text" value={newProduct.image} onChange={(e) => setNewProduct({...newProduct, image: e.target.value})}/>
                 </div>
-                <div>
-                    <label>Product Image</label>
-                    <input type="text" value={newProduct.image} onChange={(e) => setNewProduct({...newProduct, image: e.target.value})}/>
-                </div>
-                <button onClick={handleSubmit}>Create Product</button>
+                <button className={styles["create-button"]} onClick={handleSubmit}>Create Product</button>
             </form>
         </div>
     );
