@@ -19,3 +19,13 @@ export const handleError = (message) => {
         pauseOnHover: false
     });
 }
+
+export const handleWarning = (message) => {
+    toast.warning(message, {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false
+    });
+}

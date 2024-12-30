@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useProductStore } from "../../store/product";
-import "./styles.module.scss";
+import styles from "./styles.module.scss";
 
 const EditProduct = ({ product, onClose }) => {
     const { editProduct } = useProductStore();
@@ -18,7 +18,7 @@ const EditProduct = ({ product, onClose }) => {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className={styles["form"]}>
             <div>
                 <label>Nome do Produto</label>
                 <input
