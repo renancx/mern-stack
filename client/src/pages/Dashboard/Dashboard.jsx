@@ -6,16 +6,14 @@ import Navbar from "../../components/Navbar/Navbar";
 import { useProductStore } from "../../store/product";
 import { ConfirmDialog, confirmDialog } from 'primereact/confirmdialog';
 import { Dialog } from 'primereact/dialog';
-import { Toast } from 'primereact/toast';
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { handleSuccess, handleError } from "../../utils/toast";
 
-export default function Dashboard() {    
+export default function Dashboard() {
     const [visible, setVisible] = useState(false);
     const [visibleEdit, setVisibleEdit] = useState(false);
-    const { products, setProducts, deleteProduct } = useProductStore();
+    const { deleteProduct } = useProductStore();
     const [editingProduct, setEditingProduct] = useState(null);
-    const toast = useRef(null);
 
     const handleEdit = (product) => {
         setEditingProduct(product);
@@ -32,6 +30,7 @@ export default function Dashboard() {
             message: "Are you sure you want to delete this product?",
             header: "Delete Confirmation",
             icon: "pi pi-exclamation-triangle",
+            dismissableMask: true,
             acceptClassName: "p-button-danger",
             accept: async () => {
                 const result = await deleteProduct(id);
@@ -46,7 +45,6 @@ export default function Dashboard() {
 
     return (
         <div className={styles["outer-container"]}>
-            <Toast ref={toast} />
             <ConfirmDialog />
             <div className={styles["container"]}>
                 <Navbar />
@@ -61,6 +59,7 @@ export default function Dashboard() {
                 </button>
 
                 <Dialog
+                    className={styles["create-dialog"]}
                     header="Create new product"
                     visible={visible}
                     position="center"
@@ -98,6 +97,7 @@ export default function Dashboard() {
 
                 {editingProduct && (
                     <Dialog
+                        className={styles["edit-dialog"]}
                         header="Update Product"
                         visible={visibleEdit}
                         position="center"

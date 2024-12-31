@@ -14,8 +14,6 @@ const CreateProduct = () => {
 
     return(
         <div className={styles["container"]}>
-            <h1 className={styles["h1"]}>Create a new product</h1>
-            
             <form className={styles["form"]}>
                 <div className={styles["label-div"]}>
                     <label className={styles["label"]}>Product Name</label>
