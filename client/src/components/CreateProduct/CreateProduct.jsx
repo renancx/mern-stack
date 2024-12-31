@@ -27,7 +27,7 @@ const CreateProduct = () => {
                     <label className={styles["label"]}>Product Image</label>
                     <input className={styles["label-input"]} type="text" value={newProduct.image} onChange={(e) => setNewProduct({...newProduct, image: e.target.value})}/>
                 </div>
-                <button className={styles["create-button"]} onClick={handleSubmit}>Create Product</button>
+                <button className={styles["create-button"]} onClick={handleSubmit}>Confirm</button>
             </form>
         </div>
     );
