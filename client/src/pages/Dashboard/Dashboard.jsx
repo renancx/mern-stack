@@ -71,6 +71,13 @@ export default function Dashboard() {
                     <CreateProduct />
                 </Dialog>
 
+                <div className={styles["list-header"]}>
+                    <div className={styles["header-column"]}></div>
+                    <div className={styles["header-column"]}>Name</div>
+                    <div className={styles["header-column"]}>Price</div>
+                    <div className={styles["header-column"]}></div>
+                </div>
+
                 <ListProduct renderProduct={(product) => (
                     <>
                         <img src={product.image} alt={product.name} className={styles["product-image"]} width={100} height={100} />

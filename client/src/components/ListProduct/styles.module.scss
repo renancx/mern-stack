@@ -11,9 +11,15 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 2px;
     list-style-type: none;
     padding: 0;
+}
+
+
+ul.dashboard-list {
+    margin: 0;
+    list-style-type: none;
 }
 
 .dashboard-list li {
