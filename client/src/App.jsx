@@ -12,7 +12,7 @@ export default function App() {
 
 	return (
 		<AuthProvider>
-			<div>
+			<>
 				<Routes>
 					<Route path="/" element={<HomePage />} />
 					<Route path="/login" element={<Login />} />
@@ -24,7 +24,7 @@ export default function App() {
                     	<Route path="/dashboard" element={<Dashboard />} />
                 	</Route>
 				</Routes>
-			</div>
+			</>
 			<ToastContainer />
     	</AuthProvider>
   	)
