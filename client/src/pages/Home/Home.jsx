@@ -2,6 +2,7 @@ import styles from "./styles.module.scss";
 import Navbar from "../../components/Navbar/Navbar";
 import ListProduct from "../../components/ListProduct/ListProduct";
 import banner from "../../images/banner.jpg";
+import Footer from "../../components/Footer/Footer";
 
 const HomePage = () => {
     return(
@@ -20,6 +21,7 @@ const HomePage = () => {
                     </div>
                 )} 
                 className="home-list"/>
+                <Footer />
             </div>
         </div>
     );

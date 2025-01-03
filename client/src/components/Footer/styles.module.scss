@@ -1,11 +1,36 @@
 .footer-content {
     display: flex;
+    justify-content: space-evenly;
 }
 
 .footer {
     background-color: #002a7c;
     color: #fff;
-    position: absolute;
     bottom: 0;
     width: 100%;
   }
+
+  
+//   html, body {
+//     margin: 0;
+//     padding: 0;
+//     min-height: 100%;
+// }
+
+// #root {
+//     display: flex;
+//     flex-direction: column;
+//     min-height: 100%;
+// }
+
+// .main-content {
+//     flex: 1;
+// }
+
+// .footer {
+//     background-color: #002a7c;
+//     color: #fff;
+//     width: 100%;
+//     position: relative;
+//     margin-top: auto;
+// }

@@ -8,6 +8,7 @@ import { ConfirmDialog, confirmDialog } from 'primereact/confirmdialog';
 import { Dialog } from 'primereact/dialog';
 import { useState } from "react";
 import { handleSuccess, handleError } from "../../utils/toast";
+import Footer from "../../components/Footer/Footer";
 
 export default function Dashboard() {
     const [visible, setVisible] = useState(false);
@@ -116,6 +117,7 @@ export default function Dashboard() {
                         <UpdateProduct product={editingProduct} onClose={handleCloseEdit} />
                     </Dialog>
                 )}
+                <Footer />
             </div>
         </div>
     );
