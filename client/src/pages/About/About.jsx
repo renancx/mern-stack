@@ -1,9 +1,6 @@
-import styles from "./styles.module.scss";
-import { useState } from "react";
-import ProductList from "../../components/ListProduct/ListProduct";
-import CreateProduct from "../../components/CreateProduct/CreateProduct";
-import { Dialog } from 'primereact/dialog';        
+import styles from "./styles.module.scss";    
 import Navbar from "../../components/Navbar/Navbar";
+import Footer from "../../components/Footer/Footer";
 
 export default function About() {
 
@@ -11,7 +8,7 @@ export default function About() {
         <div className={styles["container"]}>
             <Navbar />
             <h1>About page</h1>
-
+            <Footer />
         </div>
     )
 }
