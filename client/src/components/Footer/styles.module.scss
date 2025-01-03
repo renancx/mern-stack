@@ -8,9 +8,20 @@
     color: #fff;
     bottom: 0;
     width: 100%;
-  }
+    margin-top: 200px;
+    padding-top: 30px;
+}
 
-  
+.footer-content-left {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-content-left-title {
+	margin-bottom: 0;
+}
+
 //   html, body {
 //     margin: 0;
 //     padding: 0;

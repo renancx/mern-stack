@@ -117,8 +117,8 @@ export default function Dashboard() {
                         <UpdateProduct product={editingProduct} onClose={handleCloseEdit} />
                     </Dialog>
                 )}
-                <Footer />
             </div>
+            <Footer />
         </div>
     );
 }
