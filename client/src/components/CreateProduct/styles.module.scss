@@ -23,12 +23,49 @@
     border: 0;
 }
 
+// .create-button {
+//     background-color: #002a7c;
+//     color: white;
+//     margin-top: 15px;
+//     padding: 10px;
+//     border: none;
+//     border-radius: 5px;
+//     cursor: pointer;
+// }
+
 .create-button {
-    background-color: #002a7c;
-    color: white;
-    margin-top: 15px;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
+    font-size: 18px;
+    color: black;
     cursor: pointer;
+    position: relative;
+    border: none;
+    background: none;
+    transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition-duration: 400ms;
+    transition-property: color;
+}
+  
+.create-button:focus,
+.create-button:hover {
+    color: #002a7c;
+}
+  
+.create-button:focus:after,
+.create-button:hover:after {
+    width: 12%;
+    left: 44%;
+}
+  
+.create-button:after {
+    content: "";
+    pointer-events: none;
+    bottom: -2px;
+    left: 50%;
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background-color: #002a7c;
+    transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition-duration: 400ms;
+    transition-property: width, left;
 }
