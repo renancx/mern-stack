@@ -23,6 +23,7 @@ body {
 .outer-container {
     display: flex;
     align-items: center;
+    flex-direction: column;
     background-color: #fff;
 }
 
@@ -52,4 +53,16 @@ body {
 
     display: flex;
     flex-direction: column;
+}
+
+.product-link {
+    text-decoration: none;
+    color: inherit;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
+    width: 100%;
 }

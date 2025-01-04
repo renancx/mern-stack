@@ -9,6 +9,7 @@ import { Dialog } from 'primereact/dialog';
 import { useState } from "react";
 import { handleSuccess, handleError } from "../../utils/toast";
 import Footer from "../../components/Footer/Footer";
+import { Link } from "react-router-dom";
 
 export default function Dashboard() {
     const [visible, setVisible] = useState(false);
@@ -81,8 +82,10 @@ export default function Dashboard() {
 
                 <ListProduct renderProduct={(product) => (
                     <>
-                        <img src={product.image} alt={product.name} className={styles["product-image"]} width={100} height={100} />
-                        <h2 className={styles["product-name"]}>{product.name}</h2>
+                        <Link to={`/product/${product._id}`} className={styles["product-link"]}>
+                            <img src={product.image} alt={product.name} className={styles["product-image"]} width={100} height={100} />
+                            <h2 className={styles["product-name"]}>{product.name}</h2>
+                        </Link>
                         <p className={styles["product-price"]}>{product.price},00</p>
 
                         <section className={styles["product-buttons"]}>

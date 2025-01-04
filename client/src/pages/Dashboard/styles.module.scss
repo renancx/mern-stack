@@ -71,3 +71,13 @@
     padding: 10px;
     border-bottom: 1px solid #eee;
 }
+
+.product-link {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    height: auto;
+    align-items: center;
+    justify-content: space-between;
+    width: 40%;
+}
