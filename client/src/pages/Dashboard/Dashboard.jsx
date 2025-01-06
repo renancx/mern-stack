@@ -29,11 +29,14 @@ export default function Dashboard() {
 
     const handleDelete = (id) => {
         confirmDialog({
+            className: styles["delete-dialog"],            
             message: "Are you sure you want to delete this product?",
             header: "Delete Confirmation",
-            icon: "pi pi-exclamation-triangle",
+            modal: true,
             dismissableMask: true,
-            acceptClassName: "p-button-danger",
+            blockScroll: true,
+            acceptClassName: styles["yes-button"],
+            rejectClassName: styles["no-button"],
             accept: async () => {
                 const result = await deleteProduct(id);
                 if (result.success) {
@@ -65,9 +68,9 @@ export default function Dashboard() {
                     header="Create new product"
                     visible={visible}
                     position="center"
+                    modal={true}
                     blockScroll={true}
                     dismissableMask={true}
-                    modal={true}
                     onHide={() => setVisible(false)}
                 >
                     <CreateProduct />

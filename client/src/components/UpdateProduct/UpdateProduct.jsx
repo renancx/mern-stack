@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useProductStore } from "../../store/product";
 import styles from "./styles.module.scss";
+import { handleError } from "../../utils/toast";
 
 const EditProduct = ({ product, onClose }) => {
     const { editProduct } = useProductStore();
@@ -13,7 +14,7 @@ const EditProduct = ({ product, onClose }) => {
         if (result.success) {
             onClose();
         } else {
-            alert(result.message);
+            handleError(result.message);
         }
     };
 
