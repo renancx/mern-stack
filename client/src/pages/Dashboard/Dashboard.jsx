@@ -32,6 +32,7 @@ export default function Dashboard() {
             className: styles["delete-dialog"],            
             message: "Are you sure you want to delete this product?",
             header: "Delete Confirmation",
+            headerClassName: styles["delete-dialog-header"],
             modal: true,
             dismissableMask: true,
             blockScroll: true,
@@ -66,6 +67,7 @@ export default function Dashboard() {
                 <Dialog
                     className={styles["create-dialog"]}
                     header="Create new product"
+                    headerClassName={styles["create-dialog-header"]}
                     visible={visible}
                     position="center"
                     modal={true}
@@ -112,7 +114,7 @@ export default function Dashboard() {
                 {editingProduct && (
                     <Dialog
                         className={styles["edit-dialog"]}
-                        header="Update Product"
+                        header="Update Product" 
                         visible={visibleEdit}
                         position="center"
                         blockScroll={true}
