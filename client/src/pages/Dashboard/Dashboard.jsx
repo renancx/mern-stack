@@ -34,6 +34,7 @@ export default function Dashboard() {
             header: "Delete Confirmation",
             headerClassName: styles["delete-dialog-header"],
             modal: true,
+            maskStyle: { backgroundColor: "rgba(0, 0, 0, 0.5)" },
             dismissableMask: true,
             blockScroll: true,
             acceptClassName: styles["yes-button"],
@@ -70,6 +71,7 @@ export default function Dashboard() {
                     headerClassName={styles["create-dialog-header"]}
                     visible={visible}
                     position="center"
+                    maskStyle={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}
                     modal={true}
                     blockScroll={true}
                     dismissableMask={true}
@@ -114,10 +116,11 @@ export default function Dashboard() {
                 {editingProduct && (
                     <Dialog
                         className={styles["edit-dialog"]}
-                        header="Update Product"
+                        header="Update Product" 
                         headerClassName={styles["edit-dialog-header"]}
                         visible={visibleEdit}
                         position="center"
+                        maskStyle={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}
                         blockScroll={true}
                         dismissableMask={true}
                         modal={true}
