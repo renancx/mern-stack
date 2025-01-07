@@ -114,7 +114,8 @@ export default function Dashboard() {
                 {editingProduct && (
                     <Dialog
                         className={styles["edit-dialog"]}
-                        header="Update Product" 
+                        header="Update Product"
+                        headerClassName={styles["edit-dialog-header"]}
                         visible={visibleEdit}
                         position="center"
                         blockScroll={true}

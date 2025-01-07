@@ -35,7 +35,7 @@
     height: 60%;
 }
 
-.create-dialog {
+.create-dialog, .edit-dialog {
     background-color: #e9e9e9;
     width: 50%;
     height: 40%;
@@ -44,7 +44,7 @@
     padding: 60px 30px 20px 30px;
 }
 
-.create-dialog-header {
+.create-dialog-header, .edit-dialog-header {
     background-color: #002a7c;
     color: #fff;
     font-size: 1.5rem;
@@ -56,7 +56,7 @@
     padding: 20px;
 }
 
-.create-dialog-header svg {
+.create-dialog-header svg, .edit-dialog-header svg {
     color: #fff;
 }
 
