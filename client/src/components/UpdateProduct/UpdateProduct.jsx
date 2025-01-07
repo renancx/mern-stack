@@ -20,35 +20,43 @@ const EditProduct = ({ product, onClose }) => {
 
     return (
         <form onSubmit={handleSubmit} className={styles["form"]}>
-            <div>
-                <label>Nome do Produto</label>
+            <div className={styles["form-group"]}>
+                <label className={styles["form-label"]}>Nome do Produto</label>
                 <input
                     type="text"
+                    className={styles["form-input"]}
                     value={updatedProduct.name}
                     onChange={(e) => setUpdatedProduct({ ...updatedProduct, name: e.target.value })}
                 />
             </div>
-            <div>
-                <label>Preço do Produto</label>
+            <div className={styles["form-group"]}>
+                <label className={styles["form-label"]}>Preço do Produto</label>
                 <input
                     type="text"
+                    className={styles["form-input"]}
                     value={updatedProduct.price}
                     onChange={(e) => setUpdatedProduct({ ...updatedProduct, price: e.target.value })}
                 />
             </div>
-            <div>
-                <label>Imagem do Produto</label>
+            <div className={styles["form-group"]}>
+                <label className={styles["form-label"]}>Imagem do Produto</label>
                 <input
                     type="text"
+                    className={styles["form-input"]}
                     value={updatedProduct.image}
                     onChange={(e) => setUpdatedProduct({ ...updatedProduct, image: e.target.value })}
                 />
             </div>
-            <button type="submit">Salvar</button>
-            <button type="button" onClick={onClose}>
-                Cancelar
-            </button>
+            <div className={styles["form-actions"]}>
+                <button type="button" className={styles["form-button-cancel"]} onClick={onClose}>
+                    Cancelar
+                </button>
+                <button type="submit" className={styles["form-button"]}>
+                    Salvar
+                </button>
+            </div>
         </form>
+
     );
 };
 
