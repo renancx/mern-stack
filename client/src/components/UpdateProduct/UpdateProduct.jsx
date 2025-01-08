@@ -49,10 +49,10 @@ const EditProduct = ({ product, onClose }) => {
             </div>
             <div className={styles["form-actions"]}>
                 <button type="button" className={styles["form-button-cancel"]} onClick={onClose}>
-                    Cancelar
+                    Cancel
                 </button>
                 <button type="submit" className={styles["form-button"]}>
-                    Salvar
+                    Update
                 </button>
             </div>
         </form>

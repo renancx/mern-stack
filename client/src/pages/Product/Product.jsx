@@ -21,12 +21,24 @@ export default function Product() {
             <Navbar />
 
             {product ? (
-                <>
-                    <h1 className={styles["product-title"]}>{product.name}</h1>
+                <div className={styles["container"]}>
                     {/* <p>{product.description}</p> */}
-                    <p className={styles["product-price"]}>Price: {product.price}</p>
-                    <img className={styles["product-img"]} src={product.image} alt={product.name} />
-                </>
+                    <div className={styles["product-info"]}>
+                        <img className={styles["product-img"]} src={product.image} alt={product.name} />
+                        <div className={styles["product-details"]}>
+                            <h1 className={styles["product-title"]}>{product.name}</h1>
+                            <p className={styles["product-price"]}>R$ {product.price},00</p>
+                            <button className={styles["add-to-cart"]}>Add do cart</button>
+                        </div>
+                    </div>
+                    <div className={styles["product-description"]}>
+                        <h2>About this product</h2>
+                        <p>
+                            Product description 
+
+                        </p>
+                    </div>
+                </div>
             ) : (
                 <p>Product not found.</p>
             )}
