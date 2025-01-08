@@ -8,6 +8,7 @@ import ProtectedRoute from "./providers/ProtectedRoute.jsx"
 import Dashboard from "./pages/Dashboard/Dashboard.jsx"
 import About from "./pages/About/About.jsx"
 import Product from "./pages/Product/Product.jsx"
+import NotFound from "./pages/NotFound/NotFound.jsx"
 
 export default function App() {
 
@@ -19,7 +20,7 @@ export default function App() {
 					<Route path="/login" element={<Login />} />
 					<Route path="/signup" element={<Signup />} />
 					<Route path="/about" element={<About />} />
-					<Route path="*" element={<h1>Not Found</h1>} />
+					<Route path="*" element={ <NotFound /> } />
 					<Route path="/product/:id" element={<Product />} />
 
 					<Route element={<ProtectedRoute />}>
